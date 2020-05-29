@@ -1,0 +1,26 @@
+{
+  "name": "6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "color": "^3.1.2",
+    "mysql": "^2.18.1",
+    "qs": "^6.9.4",
+    "redis": "^3.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://아이디:비밀번호@github.com/Yunbok/SweeTest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yunbok/SweeTest/issues"
+  },
+  "homepage": "https://github.com/Yunbok/SweeTest#readme"
+}

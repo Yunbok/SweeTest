@@ -23,3 +23,6 @@ drwxr-xr-x 8 root root 4096  5월 24 01:39 ../
 root@goorm:/workspace/SweeTest/7(master)#
 
 */
+
+//https://nodejs.org/api/child_process.html
+//

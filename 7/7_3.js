@@ -18,7 +18,7 @@ if (cluster.isMaster) {		//마스터일때 실행되는 부분
 		}
 	}
 
-	const numCPUs = require('os').cpus().length;
+	const numCPUs = require('os').cpus().length; //CPU 갯수 알아내기
 	for (var i = 0; i < numCPUs; i++) {
 		cluster.fork();
 		console.log("New Fork!");
@@ -36,7 +36,12 @@ if (cluster.isMaster) {		//마스터일때 실행되는 부분
 		process.send({ cmd: 'notifyRequest' });
 	}).listen(8080);
 }
+/*
+	https://ybtest.run.goorm.io 주소로 접속하면 numReqs 가 1씩 증가해야할거같은데
+	2씩증가함 CPU 갯수만큼 전부 요청을 처리하는듯 하다.
 
+
+*/
 
 
 
@@ -64,3 +69,5 @@ numReqs = 2
 numReqs = 2
 numReqs = 2
 ^C
+
+*/
