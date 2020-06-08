@@ -1,7 +1,7 @@
 var mysql  = require('mysql')
 
 
-var connection  = mysql.createConnection({
+var connection2  = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'nodejs',
 	password : '1234',
@@ -16,6 +16,7 @@ var pool  = mysql.createPool({
 	connectionLimit : 5
 });
 
+/*
 // pool.getConnection((err, connection)=>{
 // 	pool.query( 'SELECT * FROM testTable',(err, rows)=>{
 // 		// 뭔가 데이터를 이용한 이러 저러한 작업들..
@@ -36,7 +37,7 @@ connection.connect((err, connection)=>{
       console.error('Database connection was refused.')
     }
   }
-	connection.query( 'SELECT * FROM testTable',(err, rows)=>{
+connection.query( 'SELECT * FROM6 testTable',(err, rows)=>{
 			// 뭔가 데이터를 이용한 이러 저러한 작업들..
 			console.log( new Date() );
 
@@ -51,7 +52,7 @@ connection.connect((err, connection)=>{
     return;
   }
 });
-/*
+*/
 for( var i = 0 ; i < 6 ; i++ ){
 	pool.getConnection((err, connection)=>{
 		if( err ){
@@ -60,7 +61,7 @@ for( var i = 0 ; i < 6 ; i++ ){
 		}
 
 
-     console.log('connected as id ' + connection.threadId);
+    	console.log('connected as id ' + connection.threadId);
 		connection.query( 'SELECT * FROM testTable',(err, rows)=>{
 			// 뭔가 데이터를 이용한 이러 저러한 작업들..
 			console.log( new Date() );
@@ -73,5 +74,5 @@ for( var i = 0 ; i < 6 ; i++ ){
 		});
 	});
 }
-*/
+
 	

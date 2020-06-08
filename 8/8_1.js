@@ -7,6 +7,8 @@ var connection = mysql.createConnection({
 	password : '1234',
 	database : 'test'
 });
+
+/*
 connection.connect((err)=>{
 	if (err) {
 		console.error('error connecting: ' + err.stack);
@@ -15,6 +17,7 @@ connection.connect((err)=>{
 
 	console.log('connected as id ' + connection.threadId);
 });
+*/
 // connect 가 끝나기전까진 query 가 실행되지않음
 connection.query('SELECT * from testTable',(err, rows, fields)=>{
 	if (err) throw err;
