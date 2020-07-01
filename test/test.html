@@ -1,0 +1,43 @@
+<html>
+<body>
+
+<textarea id="textarea" style="background-color: #ccc;height: 400px;width: 400px;overflow: hidden;" readonly="true"></textarea>
+<br/>
+<form>
+	<input style="width: 400px;" type="text" id="inputbox" onkeypress="if( event.keyCode==13 ){sendMessage();}" >
+	<input type= "button" onclick="javascript:sendMessage()" value = "send">
+	<input type = "text" style="display:none;">
+</form>
+<script>
+	var exampleSocket = new WebSocket("ws://ybtest.run.goorm.io", "protocolOne");
+	// var socket = io.connect('https://ybtest.run.goorm.io');
+
+	function press(f){
+		if (f.keyCode == 13){
+			sendMessage();
+		}
+	}
+	
+	exampleSocket.onopen = function (event) {
+  		exampleSocket.send("연결됨");
+
+	};
+	
+	function sendMessage() {
+		exampleSocket.send(document.getElementById("inputbox").value); 
+	}
+
+
+	exampleSocket.onmessage = function (event) {
+		 console.log(event.data);
+  		var massage = document.getElementById("textarea").value ;
+  		var textarea = document.getElementById("textarea");
+		massage = massage +"\n"+ event.data;
+		document.getElementById("textarea").value = massage;
+
+		textarea.scrollTop = textarea.scrollHeight;
+
+	};
+</script>
+</body>	
+</html>
